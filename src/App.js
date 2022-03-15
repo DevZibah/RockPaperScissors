@@ -1,47 +1,30 @@
-import { useState, useEffect, Fragment } from 'react'
-import axios from 'axios'
+import { Switch, Route } from 'react-router-dom'
 import './style/All.css'
-import patternMobile from './assets/pattern-divider-mobile.svg'
-import patternDesktop from './assets/pattern-divider-desktop.svg'
-import dice from './assets/icon-dice.svg'
+import Header from './components/Header'
+import Footer from './components/Footer'
+import Selectgame from './components/Selectgame'
+import Game from './components/Game'
+import { useState } from 'react/cjs/react.development'
+import Modal from './components/Modal'
 const App = () => {
-  const [advice, setAdvice] = useState([])
-  const [loading, setLoading] = useState(true)
-
-  const getAdvice = () => {
-    axios.get('https://api.adviceslip.com/advice').then((response) => {
-      console.log(response)
-      const myAdvice = response.data
-      setAdvice(myAdvice)
-      setLoading(false)
-      console.log(advice);
-    })
-  }
-  useEffect(() => {
-    getAdvice()
-  }, [])
-  // console.log(advice.slip.id);
+  const [score, setScore] = useState(0)
+  const [select, setSelect] = useState('')
   return (
     <div className='App'>
-      {loading === false && (
-        <Fragment>
-          <div className='small'>
-            <small> advice #{advice.slip.id}</small>
-          </div>
-          <div className='lorem'>
-            <p>
-              {advice.slip.advice}
-            </p>
-          </div>
-          <div className='pause'>
-            <source media='(min-width:768px)' srcSet={patternDesktop} />
-            <img src={patternMobile} alt='divider' />
-          </div>
-          <div className='dice'>
-            <img onClick={getAdvice} src={dice} alt='Dice' />
-          </div>
-        </Fragment>
-      )}
+      <div>
+        <Header score={score} />
+      </div>
+      <Switch>
+        <Route exact path='/'>
+          <Selectgame setSelect={setSelect} />
+        </Route>
+        <Route exact path='/Game'>
+          <Game select={select} setScore={setScore} score={score} />
+        </Route>
+      </Switch>
+      <div>
+        <Footer />
+      </div>
     </div>
   )
 }

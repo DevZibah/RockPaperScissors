@@ -1,15 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
+
 /* Variables */
 :root {
-  /* neutral */
-  --DarkBlue: hsl(218, 23%, 16%);
-  --GrayishBlue: hsl(217, 19%, 38%);
-  --DarkGrayishBlue: hsl(217, 19%, 24%);
-
   /* primary */
-  --LightCyan: hsl(193, 38%, 86%);
-  --NeonGreen: hsl(150, 100%, 66%);
+  --ScissorsGradient: hsl(40, 84%, 53%);
+  --PaperGradient: hsl(230, 89%, 65%);
+  --RockGradient: hsl(349, 70%, 56%);
+  --LizardGradient: hsl(261, 73%, 60%) to hsl(261, 72%, 63%);
+  --Cyan: hsl(189, 59%, 53%) to hsl(189, 58%, 57%);
+
+  /* neutral */
+  --DarkText: hsl(229, 25%, 31%);
+  --ScoreText: hsl(229, 64%, 46%);
+  --HeaderOutline: hsl(217, 16%, 45%);
+
+  /* Background */
+  --RadialGradient: hsl(237, 49%, 15%);
 }
+
 *,
 ::after,
 ::before {
@@ -18,60 +26,254 @@
   outline: none;
   box-sizing: border-box;
 }
+
 body {
-  font-size: 28px;
-  color: var(--LightCyan);
-  background-color: var(--DarkBlue);
+  color: white;
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  padding: 1rem;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  background-color: var(--RadialGradient);
+  padding: 2.2rem;
 }
-.App {
-  border: 1px solid var(--DarkGrayishBlue);
-  text-align: center;
-  padding: 14.5px;
+.header {
+  border: 2px solid var(--HeaderOutline);
   border-radius: 10px;
-  margin-top: 4rem;
-  background-color: var(--DarkGrayishBlue);
 }
-.small {
-  border: 1px solid var(--DarkGrayishBlue);
-  text-transform: uppercase;
-  color: var(--NeonGreen);
-  font-size: 16px;
-  padding: 20px;
+.first-div h6 {
+  line-height: 7px !important;
 }
-.lorem {
-  font-family: 'Manrope', sans-serif;
+.second-div {
+  border-radius: 10px;
 }
-.pause img {
-  border: 1px solid var(--DarkGrayishBlue);
-  margin-top: -2rem;
+.second-div p {
+  line-height: 12px;
 }
-.dice {
-  border: 1px solid var(--NeonGreen);
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: -4rem;
-  margin-top: 1rem;
-  transform: translateY(-30%);
-  height: 4rem;
-  padding: 16px;
+.div-p {
+  font-size: 30px;
+  color: var(--HeaderOutline);
+}
+.div-pp {
+  color: var(--ScoreText);
+}
+.paperSc {
+  transform: translateY(-12rem);
+}
+.icon1,
+.icon2,
+.icon3,
+.icon4 {
+  border: 1px solid red;
   border-radius: 50%;
-  width: fit-content;
-  cursor: pointer;
-  background-color: var(--NeonGreen);
+  background-color: white;
+  transition: transform 0.2s;
 }
-.dice img {
-  border: 1px solid var(--NeonGreen);
-  margin-top: -1rem;
+.selectgame,
+.game {
+  margin-top: 3.5rem !important;
 }
+.icon1 {
+  box-shadow: inset 0px 5px 4px grey, 0px 5px var(--PaperGradient);
+  border: 15px solid var(--PaperGradient);
+}
+.icon2 {
+  box-shadow: inset 0px 5px 4px grey, 0px 5px var(--ScissorsGradient);
+  border: 15px solid var(--ScissorsGradient);
+}
+.icon3 {
+  box-shadow: inset 0px 5px 4px grey, 0px 5px var(--RockGradient);
+  border: 15px solid var(--RockGradient);
+}
+.icon1:hover,
+.icon2:hover .icon3:hover {
+  transform: translateX(1.5rem) scale(1.1);
+}
+.rock {
+  margin-top: -12rem !important;
+}
+.footer {
+  margin-top: 2rem !important;
+}
+.rules {
+  bottom: 1rem;
+  padding: 7px 25px;
+  right: 1rem;
+  border-radius: 0.4rem;
+  border: 2px solid var(--HeaderOutline);
+  color: lighten(var(--HeaderOutline), 20%);
+  background: none;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+.winlose {
+  font-size: 35px;
+}
+.pA {
+  color: var(--HeaderOutline);
+  border-radius: 8px;
+  width: 60% !important;
+}
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-content {
+  width: 500px;
+  border-radius: 8px;
+  background-color: #fff;
+}
+.modal-body {
+  border-radius: 8px;
+  background-color: white;
+}
+.rules-one {
+  color: var(--DarkText);
+  font-size: 22px;
+  font-weight: bold;
+}
+.gamme {
+  display: none;
+}
+.winlose-one {
+  display: none;
+}
+/* Small devices (landscape phones) */
+
+@media (min-width: 276px) {
+}
+
+/* Medium devices (tablets) */
+
 @media (min-width: 768px) {
   body {
-    font-size: 28px;
-    margin-top: -25%;
-    padding: 28rem;
+    /* border: 1px solid red !important; */
+    padding: 8rem;
+    margin-bottom: -12rem !important;
     overflow: hidden;
+  }
+  .header {
+    margin-top: -6rem !important;
+  }
+  .first-div h6 {
+    font-size: 35px;
+    line-height: 18px !important;
+  }
+  .second-div {
+    /* border: 1px solid red !important; */
+    height: 100%;
+    width: 60% !important;
+    margin-left: 6rem !important;
+  }
+  .paperSc {
+    /* border: 1px solid red; */
+    transform: translateY(-18rem);
+  }
+  .icon1 {
+    border: 20px solid var(--PaperGradient);
+  }
+  .icon2 {
+    border: 20px solid var(--ScissorsGradient);
+  }
+  .icon3 {
+    border: 20px solid var(--RockGradient);
+  }
+  .rock {
+    margin-top: -17rem !important;
+  }
+  .footer {
+    /* border: 1px solid red; */
+    width: 130% !important;
+    text-align: end !important;
+    margin-top: -1rem !important;
+  }
+  .modal-content {
+    width: 400px;
+  }
+  .gamme {
+    display: flex;
+  }
+  .game-one {
+    display: none;
+  }
+  .winlosee {
+    display: none;
+  }
+  .winlose-one {
+    display: block;
+    transition: 4s ease-in;
+  }
+  .player {
+    margin-left: -2.5rem !important;
+  }
+  .house {
+    transform: translateX(6rem) !important;
+  }
+  .pA {
+    width: 100% !important;
+  }
+}
+
+/* Large devices (desktops) */
+
+@media (min-width: 992px) {
+}
+
+/* Extra large devices (large desktops) */
+
+@media (min-width: 1200px) {
+  body {
+    overflow: hidden;
+    padding: 14rem;
+  }
+  .header {
+    margin-top: -12rem !important;
+  }
+  .second-div {
+    width: 30% !important;
+    margin-left: 19rem !important;
+  }
+  .triangle {
+    width: 38% !important;
+  }
+  .paperSc {
+    transform: translateY(-23rem);
+  }
+  .icon1 {
+    border: 28px solid var(--PaperGradient);
+    margin-left: 10rem !important;
+  }
+  .icon2 {
+    border: 28px solid var(--ScissorsGradient);
+    margin-left: -10rem !important;
+  }
+  .icon3 {
+    border: 28px solid var(--RockGradient);
+    margin-top: -3rem !important;
+  }
+  .footer {
+    width: 120% !important;
+  }
+  .footer button{
+    margin-top: 1rem !important;
+  }
+  .icon1:hover,
+  .icon2:hover, .icon3:hover {
+    transform: translateX(1.5rem) scale(1.1);
+  }
+  .player {
+    margin-left: -5rem !important;
+  }
+  .house {
+    transform: translateX(10rem) !important;
+  }
+  .pA {
+    width: 70% !important;
   }
 }
