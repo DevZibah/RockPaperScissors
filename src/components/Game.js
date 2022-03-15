@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { useEffect, useState } from 'react/cjs/react.development'
 import paperimg from '../assets/icon-paper.svg'
 import scissorsimg from '../assets/icon-scissors.svg'
 import rockimg from '../assets/icon-rock.svg'
